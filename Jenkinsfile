@@ -4,8 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-            }
+                sh "pwd"
+                dir('~//Users/x451868/Documents/formula1App') {
+                    sh "pwd"
+                }
+                sh "pwd"
+        } 
         }
         stage('Test') {
             steps {
