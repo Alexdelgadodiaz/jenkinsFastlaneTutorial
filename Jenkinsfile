@@ -7,7 +7,7 @@ pipeline {
                 sh "pwd"
                 dir('~//Users/x451868/Documents/formula1App') {
                     sh "pwd"
-                    fastlane sonarQ
+                    sh 'fastlane sonarQ'
                 }
                 sh "pwd"
         } 
