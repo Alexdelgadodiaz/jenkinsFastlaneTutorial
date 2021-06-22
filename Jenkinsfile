@@ -35,7 +35,9 @@ pipeline {
 
         stage('Deploy_to_appCenter') {
             steps {
-                sh 'fastlane distribute_to_appCenter' 
+                dir('/Users/x451868/Documents/formula1App') {
+                    sh 'fastlane distribute_to_appCenter' 
+                }
             }
         }
 
