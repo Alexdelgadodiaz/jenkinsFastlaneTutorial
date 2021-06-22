@@ -12,13 +12,13 @@ pipeline {
                 sh "pwd"
                 dir('/Users/x451868/Documents/formula1App/certsVault/') {
                     sh 'vault kv get -field=base64Provision secret/provision | base64 --decode >f1demoAppStore-3.mobileprovision' 
-                    
+
                     sh 'vault kv get -field=base64Distribution secret/distribution | base64 --decode >distributionB.p12' 
                 }
             } 
         }
         
-        stage('Build') {
+        stage('SonarQ') {
             steps {
                 sh "pwd"
                 dir('/Users/x451868/Documents/formula1App') {
@@ -27,15 +27,15 @@ pipeline {
             } 
         }
 
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         echo 'Testing..'
+        //     }
+        // }
 
-        stage('Deploy') {
+        stage('Deploy_to_appCenter') {
             steps {
-                echo 'Deploying....'
+                sh 'fastlane distribute_to_appCenter' 
             }
         }
 
