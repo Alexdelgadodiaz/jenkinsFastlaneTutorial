@@ -5,7 +5,7 @@ pipeline {
         LANG    = 'en_US.UTF-8'
         LANGUAGE = 'en_US.UTF-8'
         VAULT_ADDR='http://127.0.0.1:8200'
-        VAULT_TOKEN="s.XmpNPoi9sRhYtdKHaQhkHP6x"
+        VAULT_TOKEN="s.ldtqNRQtad5FtiXtxG3QmUwJ"
 
     }
     stages {
