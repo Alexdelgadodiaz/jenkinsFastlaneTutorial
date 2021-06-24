@@ -20,14 +20,14 @@ pipeline {
             } 
         }
         
-        stage('SonarQ') {
-            steps {
-                sh "pwd"
-                dir('/Users/x451868/Documents/formula1App') {
-                    sh 'fastlane sonarQ' 
-                }
-            } 
-        }
+        // stage('SonarQ') {
+        //     steps {
+        //         sh "pwd"
+        //         dir('/Users/x451868/Documents/formula1App') {
+        //             sh 'fastlane sonarQ' 
+        //         }
+        //     } 
+        // }
 
         // stage('Test') {
         //     steps {
