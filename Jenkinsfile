@@ -5,7 +5,7 @@ pipeline {
         LANG    = 'en_US.UTF-8'
         LANGUAGE = 'en_US.UTF-8'
         VAULT_ADDR='http://127.0.0.1:8200'
-        VAULT_TOKEN='s.XSDKPQhD8C0hgwWNU0FasD2S'
+        VAULT_TOKEN='s.XqbYor6IhWJ9wKRwGVThW0Lu'
 
     }
     stages {
@@ -14,8 +14,8 @@ pipeline {
             steps {
                 sh "pwd"
                 dir('/Users/x451868/Documents/formula1App/certsVault/') {
-                    sh 'vault kv get -field=provisionFile secret/provision | base64 --decode >f1demoAppStore-3.mobileprovision'
-                    sh 'vault kv get -field=distributionFile secret/distribution | base64 --decode >distributionB.p12' 
+                    sh 'vault kv get -field=distributionFile secret/distribution | base64 --decode >distributionCertAdd.p12'
+                    sh 'vault kv get -field=provisionFile secret/provision | base64 --decode >distributionf1demo.mobileprovision' 
                 }
             } 
         }
