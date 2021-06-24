@@ -46,8 +46,9 @@ pipeline {
         stage('Remove_certs') {
             steps {
                 dir('/Users/x451868/Documents/formula1App/certsVault/') {
-                    sh 'rm f1demoAppStore-3.mobileprovision' 
-                    sh 'rm distributionB.p12' 
+                    sh 'rm distributionCertAdd.p12' 
+                    sh 'rm distributionf1demo.mobileprovision' 
+
                 }
             }
         }
