@@ -38,7 +38,7 @@ pipeline {
         stage('Deploy_to_appCenter') {
             steps {
                 dir('/Users/x451868/Documents/formula1App') {
-                    sh 'security unlock-keychain -p Santander1 login.keychain'
+                    // sh 'security unlock-keychain -p Santander1 login.keychain'
                     sh 'fastlane distribute_to_appCenter' 
                 }
             }
