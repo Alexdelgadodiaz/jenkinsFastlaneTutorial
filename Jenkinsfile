@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-
-
     environment {
         LC_ALL = 'en_US.UTF-8'
         LANG    = 'en_US.UTF-8'
@@ -55,10 +53,9 @@ pipeline {
 
             //     }
 
-            steps{
-                  sh "security find-certificate -c "Apple Distribution" -a -Z | \ sudo -S <<< "Santander1" awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'"
-
-            }    
+                steps{
+                    sh "security find-certificate -c "Apple Distribution" -a -Z | \ sudo -S <<< "Santander1" awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'"
+                }    
             }
         }
 
