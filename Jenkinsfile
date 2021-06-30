@@ -13,15 +13,15 @@ pipeline {
     }
     stages {
 
-        stage('Prepare_certs') {
-            steps {
-                sh "pwd"
-                dir('/Users/x451868/Documents/formula1App/certsVault/') {
-                    sh 'vault kv get -field=distributionFile secret/distribution | base64 --decode >distributionCertAdd.p12'
-                    sh 'vault kv get -field=provisionFile secret/provision | base64 --decode >distributionf1demo.mobileprovision' 
-                }
-            } 
-        }
+        // stage('Prepare_certs') {
+        //     steps {
+        //         sh "pwd"
+        //         dir('/Users/x451868/Documents/formula1App/certsVault/') {
+        //             sh 'vault kv get -field=distributionFile secret/distribution | base64 --decode >distributionCertAdd.p12'
+        //             sh 'vault kv get -field=provisionFile secret/provision | base64 --decode >distributionf1demo.mobileprovision' 
+        //         }
+        //     } 
+        // }
         
         // stage('SonarQ') {
         //     steps {
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Deploy_to_appCenter') {
             steps {
-                dir('/Users/x451868/Documents/formula1App') {
+                dir('/Users/x451868/Documents/formula1App3') {
                     // sh 'security unlock-keychain -p Santander1 login.keychain'
                     sh 'fastlane distribute_to_appCenter' 
                 }
@@ -48,12 +48,12 @@ pipeline {
         }
 
         stage('Remove_certs') {
-            steps {
-                dir('/Users/x451868/Documents/formula1App/certsVault/') {
-                    sh 'rm distributionCertAdd.p12' 
-                    sh 'rm distributionf1demo.mobileprovision' 
+            // steps {
+            //     dir('/Users/x451868/Documents/formula1App3/certsVault/') {
+            //         sh 'rm distributionCertAdd.p12' 
+            //         sh 'rm distributionf1demo.mobileprovision' 
 
-                }
+            //     }
 
             steps{
                   sh "security find-certificate -c "Apple Distribution" -a -Z | \ sudo -S <<< "Santander1" awk '/SHA-1/{system("security delete-certificate -Z "$NF)}'"
